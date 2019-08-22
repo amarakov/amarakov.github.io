@@ -2,14 +2,3 @@ name: Mostly Misunderstanding
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 
-kramdown:
-  auto_ids: true
-  use_coderay: true
-
-  coderay:
-    coderay_wrap: div
-    coderay_line_numbers: nil
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
-    coderay_default_lang: python
