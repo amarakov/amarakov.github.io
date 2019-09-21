@@ -4,50 +4,9 @@ title: What is the Value of Quantum Communications?
 description: Thinking about where the real values lies in near-term and long-term quantum Communications
 ---
 
-Outline:
-  - Brief description of the current state:
-      - Major players (nation-states)
-      - Major players (commercial)
-      - Current use cases
-
-  - The 'promises' of QComms:
-      - 'Unhackable'
-      - Can see effect of eavesdroppers
-
-  - The reality of QComms:
-      - 'unhackable' within some conditions (these are becoming more stringent)
-      - low bitrates
-      - QKD is major application in near term, but your info is stored classically!
-      - Device Independent implementations are a long way off (Bell states)
-
-
-  - What do we do with ideal QComms?
-      - Your messages are already unhackable, probably (RSA, AES)
-      - Why convert classical information to quantum information (serious bottleneck?)
-      - Why not use quantum resistant encryptions?
-          - Lattice encryption, something else
-          - We know that quantum computers can only efficiently solve a subset of classically intractable problems
-
-      - What are we left with:
-          - Messages that need to be secret RIGHT NOW, but not later
-          - Moving *quantum* information around (from sensors, between processors, etc)
-          - Applications in which it is important to guarantee either:
-            - total secrecy, guaranteed by known physics (requires Quantum memory so you don't store info classically)
-                - maybe undercut by provably quantum resistant encryptions?
-
-            - guaranteed knowledge of eavesdropping attempts
-                - No- Cloning means you should have statistically evidence of eavesdroppers
-
-  - What to look for in terms of enabling technologies and advances
-      - Error corrected logical qubits (duh, also enables general QC)
-      - Good quantum memories
-      - High brightness sources of entangled photons (enables high bitrates)
-      - High efficiency optical -> something else entanglement conversion (to actually utilize quantum memory)
-      - Repeaters (enabled by quantum memory)
-
 # What is the Value of Quantum Communications?
 
-  Practicing physicists and interested observers by now have heard the many fantastical promises of the coming '2nd Quantum Revolution'_[link to something here]_. The usual hype is that quantum computers will smash mere classical encryption and usher in an era of unprecedented, colossal computing power. There's a lot to be said on that subject, but we mustn't neglect the closely related quantum sensing and communications technologies that, together with quantum computing, fall under the umbrella of Quantum Information Sciences. Indeed, sensing and communications are interesting precisely because they have already demonstrated improvements on the classical state of the art _[link to stuff here]_ and are likely to reach marketability long before quantum computers _[link to various Quantum Tech Roadmaps]_.
+  Practicing physicists and interested observers by now have heard the many fantastical promises of the coming <a href="https://www.nist.gov/topics/physics/introduction-new-quantum-revolution/second-quantum-revolution">'2nd Quantum Revolution'</a>. The usual hype is that quantum computers will smash mere classical encryption and usher in an era of unprecedented, colossal computing power. There's a lot to be said on that subject, but we mustn't neglect the closely related quantum sensing and communications technologies that, together with quantum computing, fall under the umbrella of Quantum Information Sciences. Indeed, sensing and communications are interesting precisely because they require fewer qubits than universal quantum computers, and so are likely to reach marketability long before quantum computers [^1].
 
   The value proposition of quantum sensors is easy to understand, and I intend to author a post about quantum sensing sometime in the future.
 
@@ -55,11 +14,11 @@ Outline:
 
 <h2>The Current State of Play</h2>
 
-Despite its relative youth, the current body of quantum comms literature is intimidating in its breadth and depth. The protocols, implementations, security analyses, tweaks, demonstrations, and so on are multitudinous. As far as I know, there is no good quantum communications primer, except for whichever parts of the quantum computing literature are applicable. Maybe I will write one? Good introductions to quantum computing range from _the_ textbook [Quantum Computing and Quantum Information], to this useful article [War on the Rocks link], or a quantum computing text book slowly being built as a spaced-repetition website [Nielsen and Matuschak].
+Despite its relative youth, the current body of quantum comms literature is intimidating in its breadth and depth. The protocols, implementations, security analyses, tweaks, demonstrations, and so on are multitudinous. As far as I know, there is no good quantum communications primer, except for whichever parts of the quantum computing literature are applicable. Maybe I will write one? Good introductions to quantum computing range from _the_ textbook <a href="https://www.amazon.com/Quantum-Computation-Information-10th-Anniversary/dp/1107002176">Quantum Computing and Quantum Information</a>, to this useful article at <a href="https://warontherocks.com/2017/11/leap-quantum-technology-primer-national-security-professionals/"> War on the Rocks</a>, or a quantum computing text book slowly being built as an online spaced-repetition website: <a href="https://quantum.country/qcvc">Quantum Computing for the Very Curious</a>.
 
-Nonetheless, no specialized knowledge of quantum mechanics is required to see that the Quantum Communications field is full of activity. There are multiple commercial ventures selling quantum key distribution (QKD) equipment. The Chinese 'quantum' satellite, _Micius_, made a big splash several years ago by distributing quantum keys between ground stations 1200 km apart _[citation]_. Additionally, every major player in quantum technologies has some sort of quantum communications network. The Chinese network spans many nodes in several cities _[source]_, Vienna, Tokyo, and Fermilab are also running more limited QKD networks as well _[source]_. _[Check to see what public programs re: QKD are known in the US]_. In general, the United States focuses more on quantum computing, but still has a very active quantum comms academic research community. China seems to be most advanced, as they not only have demonstrated ground-space QKD, but also are actively working on space-subsurface QKD _[link to blue water QKD studies]_.
+Nonetheless, no specialized knowledge of quantum mechanics is required to see that the Quantum Communications field is full of activity. There are multiple commercial ventures selling quantum key distribution (QKD) equipment. The Chinese 'quantum' satellite, _Micius_, made a big splash several years ago by distributing quantum keys between ground stations <a href="https://arxiv.org/abs/1707.00542">1200 km apart</a>. Additionally, every major player in quantum technologies has some sort of quantum communications network. The <a href="https://spectrum.ieee.org/telecom/security/chinas-2000km-quantum-link-is-almost-complete">Chinese network</a> spans many nodes in several cities, Vienna, Tokyo, and Los Alamos are also running more limited QKD networks as well[^2]. In general, the United States focuses more on quantum computing, but still has a very active quantum comms academic research community. China seems to be most advanced, as they not only have demonstrated ground-space QKD, but have also kicked off a flurry of research activity on <a href="https://arxiv.org/pdf/1402.4666.pdf">sub-marine QKD links</a>.
 
-Despite all of this activity, quantum communications is currently limited pretty much entirely to QKD implementations. Further, what implementations exist are suboptimal in multiple ways: security proofs often rely on strong assumptions[^1] about many parts of the system, key rates are comically low, and many protocols are stymied by lossy transmission channels. There are entire <a href="http://www.vad1.com/publications/">research labs</a> whose activities are entirely dedicated to exposing security flaws in laboratory and commercial QKD implementations. In the near term, there is not much use to be had from QKD, but as researchers in the field continue to iterate on their protocols, this may change.
+A quick glance through the list and you can see that quantum communications is currently limited pretty much entirely to QKD implementations. Further, what implementations exist are suboptimal in multiple ways: security proofs often rely on strong assumptions[^3] about many parts of the system, key rates are comically low, and many protocols are stymied by lossy transmission channels. There are entire <a href="http://www.vad1.com/publications/">research labs</a> whose activities are entirely dedicated to exposing security flaws in laboratory and commercial QKD implementations. In the near term, there is not much use to be had from QKD, but as researchers in the field continue to iterate on their protocols, this may change.
 
 <h2> The Promise </h2>
 
@@ -73,7 +32,7 @@ Let's leave aside for now the gaping holes in the phrase "provably secure" and c
 
 What circumstances would warrant such ironclad security guarantees?
 <ol>
-  <li><strong>Wide spread use of universal quantum computers</strong>. A quantum computer with millions or billions of logical qubits could likely make short work of contemporary encryption techniques. It wouldn't grant the ability to intercept and copy quantum information in flight (this is forbidden by the No-Cloning Theorem), nor would it be able to copy unknown states sitting in some quantum memory. However, a cheaper (faster?) option already exists: post-quantum cryptography. There are some tasks that neither classical, nor quantum computers can complete efficiently. Lattice based encryptions rely on the fact that the Shortest Vector Problem _[link here]_ is <em>thought</em> to be hard both for classical and quantum computers. You can expect that post-quantum cryptographic techniques will play a role regardless, as we will certainly still be using classical bits for many tasks.
+  <li><strong>Wide spread use of universal quantum computers</strong>. A quantum computer with millions or billions of logical qubits could likely make short work of contemporary encryption techniques. It wouldn't grant the ability to intercept and copy quantum information in flight (this is forbidden by the No-Cloning Theorem), nor would it be able to copy unknown states sitting in some quantum memory. However, a cheaper (faster?) option already exists: post-quantum cryptography. There are some tasks that neither classical, nor quantum computers can complete efficiently. Lattice based encryptions rely on the fact that the Shortest Vector Problem is thought to be hard both for classical and quantum computers. You can expect that post-quantum cryptographic techniques will play a role regardless, as we will certainly still be using classical bits for many tasks.
 
   The time horizon for this scenario is thought to be somewhere between 5-100 years. My personal guess is at least 50 years.</li>
 
@@ -87,7 +46,7 @@ I expect that classical information encrypted with whichever <a href="https://cs
 
   <h2> Enabling Technologies </h2>
 
-  The state of the art of quantum communications is still far, far from realistically satisfying the use cases above. Bitrates are low (<kbps over relevant distances), the protocols are largely limited to quantum key distribution, and security proofs have only recently begun to grapple with realistic empirical conditions just to name a few. You still have to do a lot of work crawling through the literature to properly compare various protocols and implementations. Still, here's a list of a few important enabling advances:
+  The state of the art of quantum communications is still far, far from realistically satisfying the use cases above. Bitrates are low (< kbps over relevant distances), the protocols are largely limited to quantum key distribution, and security proofs have only recently begun to grapple with realistic empirical conditions just to name a few. You still have to do a lot of work crawling through the literature to properly compare various protocols and implementations. Still, here's a list of a few important enabling advances:
 
   <ol>
   <li><strong> Quantum Memory:</strong> We need to be able to store quantum states for effectively infinite time. Or at least infinite time compared to some error correction and information processing algorithm that might be run on quantum comms nodes. Probably this will come in the form of spin defects in diamond or silicon carbide.</li>
@@ -100,4 +59,7 @@ I expect that classical information encrypted with whichever <a href="https://cs
 
 The quantum business landscape is currently crowded with all kinds of companies, most of which are peddling some sort of software solutions for some hypothetical future quantum computer. None that I know of are offering anything like what I've described in the list above. In the coming weeks and months I will attempt to survey the business landscape to suss out what exactly is going on and determine exactly how high the bullshit has been piled up.
 
-[^1]: Many security proofs assume key lengths in the 'asymptotic limit'. This is jargon for 'infinite key length'. Finite size key effects are important, but often ignored, especially in the early literature.
+
+[^1]: The <a href="https://www.uni-ulm.de/fileadmin/website_uni_ulm/presse/pressemitteilungen/2016/Quantum_Manifesto.pdf"> European Quantum Manifesto</a> has a nice, but _very_ optimistic timeline of quantum technology development.
+[^2]: Wikipedia's QKD article has a <a href="https://en.wikipedia.org/wiki/Quantum_key_distribution#Quantum_key_distribution_networks">list of active QKD networks</a>.
+[^3]: Many security proofs assume key lengths in the 'asymptotic limit'. This is jargon for 'infinite key length'. Finite size key effects are important, but often ignored, especially in the early literature.
