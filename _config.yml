@@ -1,5 +1,0 @@
-name: Mostly Misunderstanding
-markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
-highlighter: rouge
-extensions: [fenced_code_blocks]
